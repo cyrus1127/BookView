@@ -9,27 +9,52 @@
 <!--<script type="text/javascript" src="extras/jquery.min.1.7.js"></script>-->
 <script type="text/javascript" src="extras/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
-<script >
-    $(document).ready(function(){
-        console.log("doc ready");
-
-        var total = 32;
-
-        for ( var img_i = 0 ; img_i <= total ; img_i++ )
-        {
-            console.log("add image ("+img_i+"/"+total+")");
-            $('<div style="background-image:url(pages/'+img_i+'.jpg)"></div>').appendTo($(".flipbook"));
-        }
-
-    });
-</script>
+    <script type="text/javascript" src="lib/scissor.js"></script>
 </head>
 <body>
 
-<div class="flipbook-viewport">
+<div class="flipbook-viewport" style="">
 	<div class="container">
-		<div class="flipbook">
-<!--			<div style="background-image:url(pages/1.jpg)"></div>-->
+		<div id="flipbook" class="flipbook">
+            <div class="hard "><div class="hardStyle"></div></div>
+            <div class="hard "><div class="hardStyle"></div></div>
+            <div >
+                <img src="http://www.joyce.com/wp-content/uploads/2014/11/PIC0603-600.jpg" width="100%"/>
+                <div class="content-head" >
+                    <p>Embrace the festive mood with Joyce’s tight edit of luxurious fabrics assimilating a kaleidoscope of colours and patterns.
+                        <br><br>
+This Christmas, Joyce reinstates colour and glamour into your winter wardrobe: from decorative fur to metallic finishes, to clashing prints and of course couture gowns. This we hope will be your ultimate starting point - and destination - for the most coveted bright and beautiful, dapper and dazzling Christmas to date.</p>
+ </div>
+            </div>
+            <div id="scissorPage" >
+                <div style="position:absolute; width:400px; height:200px; z-index: 1; font-size:50px; " > Hello E-Book! </div>
+                <div class="page-img" >
+                    <img class="tve_image" alt="" src="http://www.joyce.com/wp-content/uploads/2014/11/PIC0238-600.jpg"
+                         style=" width: 168%; margin-left: -15px; margin-top:65px;" />
+                </div>
+
+            </div>
+            <div >
+                <div class="page-img" >
+                    <img src="http://www.joyce.com/wp-content/uploads/2014/11/PIC0662-600.jpg" />
+                </div>
+            </div>
+            <div >
+                <div class="content-head" >
+                <p>New Orient Express
+Chinese designers from around the world joined forces to conquer the fashion world (and our wardrobe). Paris based Yiqing Yin’s fur-collared nip waste jacket is the answer to modern elegance; Beijing’s Xander Zhou’s 3D appliqued coat is a daring approach to men’s sartorial. And London’s Huishan Zhang fur-trimmed metallic jacket is the new interpretation of futuristic glamour.
+                    <br><br>
+                    Fantasy Kaleidoscope
+NASIR MAZHAR, Peter Pilotto and Fausto Puglisi created a myriad of colourful prints. Optical graphics collide with distorted picturesque scenery, “more is definitely more” in this case. To put the icing on the cake, Dries Van Noten’s zig zag and stripy patterned wool coats are the most complementing cover ups.
+                    <br><br>
+                    New World Glamour
+Forget about the ubiquitous “off-duty” street style. After all it’s Christmas, so think “grand and glitzy”. Giambattista Valli’s floor-sweeping gown revives the height of decadence, while Thom Browne’s gold metallic “disco jacket” is pared down with check trousers to exude a laid-back attitude.
+
+                    </p>
+                </div>
+            </div>
+            <div class="hard "><div class="hardStyle"></div></div>
+			<div class="hard "><div class="hardStyle"></div></div>
 		</div>
 	</div>
 </div>
@@ -39,30 +64,30 @@
 
 function loadApp() {
 
+    // Using scissor
+    $("#flipbook .double").scissor();
 	// Create the flipbook
-
 	$('.flipbook').turn({
 			// Width
-
-			width:922,
+			width:600,
 
 			// Height
+			height:400,
 
-			height:600,
-
-			// Elevation
-
-			elevation: 50,
-
-			// Enable gradients
-
-			gradients: true,
-
-			// Auto center this flipbook
-
-			autoCenter: true
+//			// Elevation
+//			elevation: 50,
+//
+//			// Enable gradients
+//			gradients: true,
+//
+//			// Auto center this flipbook
+//			autoCenter: true
 
 	});
+
+//    embeded in page using i-frame tag
+    var for_embed_tag = '<div style="width: 600px" class="wp-caption thrv_wrapper tve_image_caption"><iframe src="http://www.joyce.com/test/Resources/ebook/Temp-1/index.html" width="600" height="400"></iframe></div>' ;
+
 }
 
 // Load the HTML4 version if there's not CSS transform
